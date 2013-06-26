@@ -15,12 +15,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import android.annotation.TargetApi;
+//import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
-import android.app.DownloadManager;
-import android.app.DownloadManager.Request;
+//import android.app.DownloadManager;
+//import android.app.DownloadManager.Request;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -28,7 +28,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
+//import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -206,7 +206,7 @@ public class UpdateManager {
      * 显示软件下载对话框
      */
     private void showDownloadDialog() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
+        if (/*Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD*/true) {
             // 构造软件下载对话框
             AlertDialog.Builder builder = new Builder(mContext);
             builder.setTitle(R.string.update_updating);
@@ -242,13 +242,13 @@ public class UpdateManager {
      */
     private void downloadApk() {
         // 启动新线程下载软件
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD) {
+        if (/*Build.VERSION.SDK_INT < Build.VERSION_CODES.GINGERBREAD*/true) {
             new downloadApkThread().start();
-        } else {
+        } /*else {
             downloadApkAfterGingerbread();
-        }
+        }*/
     }
-
+/*
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     private void downloadApkAfterGingerbread() {
         // Let's use system download manager instead. From 2.3
@@ -275,7 +275,7 @@ public class UpdateManager {
                 .getSystemService(Context.DOWNLOAD_SERVICE);
         downloadManager.enqueue(request);
     }
-
+*/
     /**
      * 下载文件线程
      */
